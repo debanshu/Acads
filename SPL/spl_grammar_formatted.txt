@@ -1,0 +1,40 @@
+<start> -> <get> | <program>
+<get> -> T_GET T_LEFT L_STRING T_RIGHT T_SEM
+<program> -> <otherFunctions> <main> <globalSpace>
+<globalSpace> -> <expression> | <record> | <array>
+<record> -> T_REC <rec> T_LEFT <inputPar> T_RIGHT T_COL T_STRUCT T_SEM
+<main> -> T_MAIN <inputPar> T_COL <dataType> T_SEM <stmt> T_END T_SEM
+<array> -> T_ARR <rec> <arrayName> T_COL <dataType> T_SEM
+<arrayName> -> <expression> T_SQR
+<dataType> -> T_NUM | T_DEC | T_STRING | T_BOOL | EPSILON
+<stmt> -> <otherStmts>
+<otherFunctions> -> <function> <otherFunctions> | EPSILON
+<function> -> T_FUN <rec> <inputPar> T_COL <dataType> T_SEM <stmt> T_END T_SEM
+<inputPar> -> T_LEFT <pars> T_RIGHT
+<pars> -> <par> <otherPar>
+<par> -> <rec> T_COL <dataType> | EPSILON
+<otherPar> -> T_COMMA <pars> | EPSILON
+<otherStmts> -> <spl> T_SEM <otherStmts> | EPSILON
+<rec> -> T_ID <rec'>
+<rec'> -> T_DOT <rec> | T_SQL <arrayName> | EPSILON
+<spl> -> <assign> | <loop> | <branch> | <return> | <call> | <break> | <continue> | <array>
+<assign> -> <expression> T_EQ <expression> T_COL <dataType>
+<expression> -> T_LEFT <expression> T_RIGHT <expression'> | <rec> <expression'> | T_NOT <rec> <expression'> | <value> <expression'>
+<expression'> -> <operator> <expression> | <relOp> <rec> <expression'> | EPSILON
+<operator> -> <arOp> | <logicalOp> 
+<value> -> L_NUM | L_DEC | L_BOOL | L_STRING
+<arOp> -> T_PLUS | T_MUL | T_MINUS | T_DIV | T_MOD
+<logicalOp> -> T_AND | T_OR
+<relOp> -> T_LT | T_LE | T_EQQ | T_GT | T_GE | T_NE
+<call> -> T_CALL <rec> <call'>
+<call'> -> T_LEFT <actualPars> T_RIGHT | T_EQ T_LEFT <actualPars> T_RIGHT
+<actualPars> -> <actualPar> <otherActualPar>
+<actualPar> -> <rec> | EPSILON
+<otherActualPar> -> T_COMMA <actualPars> | EPSILON
+<return> -> T_RET <return'>
+<return'> -> <rec> | <value>
+<branch> -> T_IF <expression> T_SEM <stmt> <branch'>
+<branch'> -> T_ELSE <stmt> T_ENDIF | T_ENDIF
+<loop> -> T_WHILE <expression> T_SEM <stmt> T_ENDWHILE
+<break> -> T_BREAK
+<continue> -> T_CONTINUE

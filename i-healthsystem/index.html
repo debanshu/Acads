@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>E-Health System</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="css/5grid/init.js?use=mobile,desktop"></script>
+		<script src="js/jquery.formerize-1.1.js"></script>
+		<script src="js/init.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="css/5grid/core.css" />
+			<link rel="stylesheet" href="css/5grid/core-desktop.css" />
+			<link rel="stylesheet" href="css/5grid/core-1200px.css" />
+			<link rel="stylesheet" href="css/5grid/core-noscript.css" />
+			<link rel="stylesheet" href="css/style.css" />
+			<link rel="stylesheet" href="css/style-desktop.css" />
+			<link rel="stylesheet" href="css/noscript.css" />
+		</noscript>
+		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
+	</head>
+	<body class="homepage">
+
+		<!-- Wrapper-->
+			<div id="wrapper">
+				
+				<!-- Nav -->
+					<nav id="nav">
+						<a href="#me" class="icon icon-folder active"><span>Main</span></a>
+						<a href="#work" class="icon icon-user"><span>Doctor</span></a>
+						<a href="#email" class="icon icon-notify"><span>Patient</span></a>
+						<a href="#register" class="icon icon-album"><span>Register</span></a>
+                        <a href="#records" class="icon icon-file"><span>Records</span></a>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+						
+						<!-- Me -->
+							<article id="me" class="panel">
+								<header>
+									<h1>E-Health System</h1>
+									<span class="byline">Software Engineering Project</span>
+								</header>
+								<a href="#work" class="jumplink pic">
+									<span class="jumplink arrow icon icon-right"><span>Proceed</span></span>
+									<img src="images/main.jpg" alt="" />
+								</a>
+							</article>
+
+						<!-- Work --> 
+							<article id="work" class="panel">
+								<header>
+									<h2>Update Patient Info (For Doctors Only)</h2>
+								</header>
+								<form action="/update" method="post">
+									<div class="5grid">
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="did" placeholder="Doctor ID" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="name" placeholder="Patient Name" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="id" placeholder="Patient ID" />
+											</div>
+										</div>
+										<!--div class="row">
+											<div class="12u">
+												<input type="text" class="text" name="subject" placeholder="Subject" />
+											</div>
+										</div-->
+										<div class="row">
+											<div class="12u">
+												<textarea name="symptoms" placeholder="Symptoms Found"></textarea>
+											</div>
+										</div>
+                                        <div class="row">
+											<div class="12u">
+												<textarea name="disease" placeholder="Diesease Identified (if any)"></textarea>
+											</div>
+										</div>
+                                        <div class="row">
+											<div class="12u">
+												<textarea name="medicine" placeholder="Prescribed Drugs"></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="submit" class="button" value="Update Patient Record" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+
+						<!-- Email -->
+							<article id="email" class="panel">
+								<header>
+									<h2>Patient Query</h2>
+								</header>
+								<form action="/process" method="post">
+									<div class="5grid">
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="id" placeholder="UserID" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="text" class="text" name="subject" placeholder="Subject" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<textarea name="query" placeholder="Your Query in Detail."></textarea>
+											</div>
+										</div>
+										<div class="row">
+											<div class="12u">
+												<input type="submit" class="button" value="Ask Query" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+							<!-- register -->
+							<article id="register" class="panel">
+								<header>
+									<h2>Patient Registration</h2>
+								</header>
+								<form action="/reg" method="post">
+									<div class="5grid">
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="id" placeholder="ID" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="email" placeholder="E-Mail" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="phone" placeholder="Phone Number" />
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="12u">
+												<input type="hidden" name="type" value="1">
+												<input type="submit" class="button" value="Register as Patient" />
+											</div>
+										</div>
+									</div>
+								</form>
+								<header>
+									<h2>Doctor Registration</h2>
+								</header>
+								<form action="/reg" method="post">
+									<div class="5grid">
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="name" placeholder="Name" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="id" placeholder="ID" />
+											</div>
+										</div>
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="email" placeholder="E-Mail" />
+											</div>
+											<div class="6u">
+												<input type="text" class="text" name="phone" placeholder="Phone Number" />
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="12u">
+												<input type="hidden" name="type" value="2">
+												<input type="submit" class="button" value="Register as Doctor" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+                            <article id="records" class="panel">
+								<header>
+									<h2>Get Patient Records</h2>
+								</header>
+								<form action="/records" method="post">
+									<div class="5grid">
+										<div class="row">
+											<div class="6u">
+												<input type="text" class="text" name="id" placeholder="PatientID" />
+											</div>
+											
+										</div>
+										
+										<div class="row">
+											<div class="12u">
+												<input type="submit" class="button" value="Get Patient History" />
+											</div>
+										</div>
+									</div>
+								</form>
+							</article>
+
+					</div>
+		
+				<!-- Footer -->
+					<!--div id="footer">
+						<ul class="links">
+							<li>&copy; Jane Doe</li>
+							<li>Images : <a href="http://fotogrph.com/">fotogrph</a></li>
+							<li>Design : <a href="http://html5up.net/">HTML5 Up!</a></li>
+						</ul>
+					</div-->
+		
+			</div>
+
+	</body>
+    <!--
+	Astral 1.0 by HTML5 Up!
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+</html>
